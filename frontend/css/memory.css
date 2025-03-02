@@ -1,0 +1,134 @@
+:root {
+  --background-color: #bed4ff;
+  --text-color: #000000;
+  --divider-color: #868686;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  background-color: white;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem 3rem;
+  border-radius: 1.5rem;
+}
+
+#instructions {
+  font-family: "Jost", sans-serif;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  padding: 0;
+  text-align: center;
+  color: var(--text-color);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#heading {
+  font-family: "Jost", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#begin-memory {
+  width: 20rem;
+  margin: auto;
+}
+
+#begin-memory-button {
+  background-color: #8099e8;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+}
+
+#progress-bar-container {
+  width: 100%;
+  height: 2rem;
+  background-color: #d4d4d4;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: auto;
+  margin: auto;
+}
+
+#progress-bar {
+  background-color: #8099e8;
+  border-radius: 1rem;
+  transition: width 0.5s ease-in-out;
+}
+
+button {
+  color: var(--text-color);
+  border: 1.5px solid var(--text-color);
+  border-radius: 2rem;
+  font-family: "Jost", sans-serif;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.5rem 3rem;
+  margin: 1rem auto;
+}
+
+#preview-word {
+  font-family: "Jost", sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 4rem auto;
+  padding: 2rem 0;
+}
+
+#word {
+  font-family: "Jost", sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 4rem auto;
+  padding: 2rem 0;
+}
+
+#yes-no {
+  width: 20rem;
+  margin: auto;
+}
+
+#yes-button {
+  background-color: #8099e8;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  margin: 0rem auto;
+}
+
+#no-button {
+  background-color: #8099e8;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  margin: 2rem auto;
+}
