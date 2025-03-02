@@ -12,7 +12,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" type="text/css" href="./css/referral.css" />
+    <link rel="stylesheet" type="text/css" href="./css/guest.css" />
   </head>
 
   <body>
@@ -20,14 +20,15 @@
       <img src="assets/logo.png" width="30%" alt="Cognify" />
     </div>
     <div class="container">
-      <p id="instructions">
-        Your referral code is a 10-digit combination of numbers and letters.
-      </p>
+      <p id="instructions">Test results will be sent to your email.</p>
       <div class="input-container">
-        <input type="test" id="referral-code" placeholder="Enter code..." />
+        <input type="text" id="name" placeholder="Enter name..." />
+      </div>
+      <div class="input-container">
+        <input type="email" id="email" placeholder="Enter email..." />
       </div>
       <div id="submit-referral">
-        <button id="submit-referral-button" onclick="submitCode()">
+        <button id="submit-referral-button" onclick="submitGuest()">
           Submit
         </button>
       </div>
