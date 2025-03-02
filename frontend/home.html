@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            Cognify
-        </title>
-        <link rel="stylesheet" type="text/css"href="index.css"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="stylesheet" href="https://fonts.gstatic.com"/>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght60,100...900;1,100..900@display=swap"/>
-    </head>
-    <body>
-        <h1> Cognify </h1>
-        <div class="homepage"> 
-            <button id="submit"> Use referral code </button>
-            <br>
-            <button id="sign-in"> Sign in as a guest </button>
-        </div>
-       <!--<input type="text" id="code" placeholder="Enter code..."> </input>--> 
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cognify</title>
+    <link rel="stylesheet" type="text/css" href="./css/home.css" />
+  </head>
+
+  <body>
+    <div class="logo">
+      <img src="assets/images/logo.png" width="30%" alt="Cognify" />
+    </div>
+    <div class="container">
+      <div id="use-referral">
+        <button id="referral-button" onsubmit="useReferral()">
+          Use a referral code
+        </button>
+      </div>
+      <div id="divider">
+        <hr />
+      </div>
+      <div id="use-guest">
+        <button id="guest-button" onsubmit="useGuest()">
+          Sign in as a guest
+        </button>
+      </div>
+    </div>
+  </body>
 </html>
 <!--
 <!DOCTYPE html>
