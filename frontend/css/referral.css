@@ -36,48 +36,43 @@ body {
     border-radius: 1.5rem;
 }
 
-#divider {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
-
-hr {
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    margin: 1.5rem auto 1rem auto;
-    border: none;
-    border-top: 1px solid var(--divider-color);
-    color: var(--divider-color);
+#instructions {
     font-family: 'Jost', sans-serif;
     font-size: 1.2rem;
-    overflow: visible;
-    text-align: center;
-    width: 40%;
-    padding: 0.4rem 0 0 0;
-}
-
-#or {
-    font-family: 'Jost', sans-serif;
-    font-size: 1.2rem;
-    margin: 0;
+    margin-top: 1rem;
     padding: 0;
     text-align: center;
-    color: var(--divider-color);
+    color: var(--text-color);
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#use-referral {
-    width: 20rem;
+.input-container {
+    width: 100%;
+    display: flex;
 }
 
-#use-guest {
-    width: 20rem;
+input {
+    margin: 1rem auto 1rem;
+    padding: 0.7rem;
+    width: 80%;
+    font-family: 'Jost', sans-serif;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #D4D4D4;
+    border-radius: 2rem;
+    padding-left: 2rem;
 }
 
-#referral-button {
-    background-color: #F1C029;
+#submit-referral {
+    width: 14rem;
+}
+
+#submit-referral-button {
+    background-color: #8099E8;
+    color: white;
+    border: none;
+    border-radius: 2rem;
 }
 
 #guest-button {
