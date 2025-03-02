@@ -1,0 +1,61 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend with Node.js Backend</title>
+</head>
+
+<body>
+    <h1>Communicate with Backend</h1>
+
+    <div id="message"></div>
+
+    <!-- Simple form to send data -->
+    <form id="dataForm">
+        <input type="text" id="userData" placeholder="Enter some data" />
+        <button type="submit">Send Data</button>
+    </form>
+
+    <script>
+        // Function to fetch data from backend using Fetch API
+        async function fetchData() {
+            try {
+                const response = await fetch('http://localhost:3000/api/data');
+                const data = await response.json();
+                document.getElementById('message').innerText = data.message;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // Event listener for form submission
+        document.getElementById('dataForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userData = document.getElementById('userData').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/api/data', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ data: userData }),
+                });
+
+                const result = await response.json();
+                console.log(result);
+                alert('Data sent successfully!');
+            } catch (error) {
+                console.error('Error sending data:', error);
+            }
+        });
+
+        // Call fetchData on load to display the message from the backend
+        fetchData();
+    </script>
+</body>
+
+</html>
