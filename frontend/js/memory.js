@@ -107,7 +107,7 @@ function nextTestWord() {
       },
     };
     sendToBackend(results).then(() => {
-      window.location.href = "reaction.html";
+      window.location.href = "processing.html";
     });
   }
   document.getElementById("word").style.color = "black";
