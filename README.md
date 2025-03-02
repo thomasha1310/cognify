@@ -24,17 +24,9 @@ Cognify seeks to resolve these pain points by **streamlining the user experience
 
 ## Usage
 
-Please visit the release page and download the JAR file.
-
-Run the JAR using Java:
-
-```
-java -jar cognify.jar
-```
+Visit [thomasha1310.github.io/cognify](thomasha1310.github.io/cognify) to do a baseline test.
 
 ## Contributing
-
-Please ensure that [JDK-23 or later](https://www.oracle.com/java/technologies/downloads/) and [Maven 3.9 or later](https://maven.apache.org/download.cgi) are installed.
 
 Clone the repository:
 
@@ -47,14 +39,6 @@ Navigate to the new directory:
 ```
 cd cognify
 ```
-
-Compile the project using Maven:
-
-```
-mvn package
-```
-
-The compiled JAR will be located at `target/cognify-1.0.jar`.
 
 ## License
 
