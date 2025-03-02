@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cognify • Concussion Baselining</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="./css/processing.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 id="heading">Processing Speed</h1>
+      <p id="instructions">
+        On the next few pages, you will see a colored word. If the color of the
+        word matches the word (e.g., if the word "RED" is colored red), click
+        the match button; otherwise, do nothing.<br /><br />The word will change
+        every two seconds regardless of if you press the match button or not.
+        You will be scored on accuracy and speed.
+      </p>
+
+      <div id="begin-processing">
+        <button id="begin-processing-button" onclick="beginProcessing()">
+          Begin!
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

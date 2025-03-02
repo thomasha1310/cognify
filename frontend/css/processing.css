@@ -23,10 +23,10 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin-top: 1rem;
+  margin-top: 5rem;
   margin-bottom: 5rem;
   background-color: white;
   width: 60%;
@@ -47,36 +47,21 @@ body {
   margin-right: auto;
 }
 
-.input-container {
-  width: 100%;
-  display: flex;
-}
-
-input {
-  margin: 1rem auto 1rem;
-  padding: 0.7rem;
-  width: 80%;
+#heading {
   font-family: "Jost", sans-serif;
-  font-size: 1.2rem;
-  border: none;
-  background-color: #d4d4d4;
-  border-radius: 2rem;
-  padding-left: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-#submit-referral {
-  width: 14rem;
+#begin-processing {
+  width: 20rem;
 }
 
-#submit-referral-button {
+#begin-processing-button {
   background-color: #8099e8;
   color: white;
   border: none;
   border-radius: 2rem;
-}
-
-#guest-button {
-  background-color: #ffffff;
 }
 
 button {
