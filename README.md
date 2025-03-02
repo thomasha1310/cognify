@@ -19,7 +19,7 @@ Cognify seeks to resolve these pain points by **streamlining the user experience
 - Reduced test length
 - Immediate results sent to school officials and clinicians
 - Improved user experience and accessibility
-- Improved data management with MongoDB
+- Improved data management with Firebase
 - Open source and free
 
 ## Usage
