@@ -23,10 +23,10 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  margin-top: 1rem;
+  margin-top: 5rem;
   margin-bottom: 5rem;
   background-color: white;
   width: 60%;
@@ -47,47 +47,71 @@ body {
   margin-right: auto;
 }
 
-.input-container {
-  width: 100%;
-  display: flex;
-}
-
-input {
-  margin: 1rem auto 1rem;
-  padding: 0.7rem;
-  width: 80%;
+#heading {
   font-family: "Jost", sans-serif;
-  font-size: 1.2rem;
-  border: none;
-  background-color: #d4d4d4;
-  border-radius: 2rem;
-  padding-left: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
 }
 
-#submit-referral {
-  width: 14rem;
+#begin-processing {
+  width: 20rem;
+  margin: auto;
 }
 
-#submit-referral-button {
+#begin-processing-button {
   background-color: #8099e8;
   color: white;
   border: none;
   border-radius: 2rem;
 }
 
-#guest-button {
-  background-color: #ffffff;
+#progress-bar-container {
+  width: 100%;
+  height: 2rem;
+  background-color: #d4d4d4;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: auto;
+  margin: auto;
+}
+
+#progress-bar {
+  background-color: #8099e8;
+  border-radius: 1rem;
+  transition: width 0.5s ease-in-out;
 }
 
 button {
   color: var(--text-color);
   border: 1.5px solid var(--text-color);
   border-radius: 2rem;
-  padding: 0.5rem 3rem;
   font-family: "Jost", sans-serif;
   font-size: 1.2rem;
   cursor: pointer;
-  margin: 1rem auto;
-  padding: 0.7rem;
   width: 100%;
+  padding: 0.5rem 3rem;
+  margin: 1rem auto;
+}
+
+#word {
+  font-family: "Jost", sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 4rem auto;
+  padding: 2rem 0;
+}
+
+#match {
+  width: 20rem;
+  margin: auto;
+}
+
+#match-button {
+  background-color: #8099e8;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  margin: 0rem auto;
 }
