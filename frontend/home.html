@@ -3,24 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <title>Cognify</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" type="text/css" href="./css/home.css" />
   </head>
 
   <body>
     <div class="logo">
-      <img src="assets/images/logo.png" width="30%" alt="Cognify" />
+      <img src="assets/logo.png" width="30%" alt="Cognify" />
     </div>
     <div class="container">
       <div id="use-referral">
-        <button id="referral-button" onsubmit="useReferral()">
+        <button id="referral-button" onclick="useReferral()">
           Use a referral code
         </button>
       </div>
       <div id="divider">
         <hr />
+        <p id="or">or</p>
+        <hr />
       </div>
       <div id="use-guest">
-        <button id="guest-button" onsubmit="useGuest()">
+        <button id="guest-button" onclick="useGuest()">
           Sign in as a guest
         </button>
       </div>
