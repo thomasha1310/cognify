@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cognify • Concussion Baselining</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" type="text/css" href="./css/memory.css" />
+
+    <script src="./js/memory.js" defer></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="before-test" style="width: 100%; height: 100%">
+        <h1 id="heading">Verbal Memory</h1>
+        <p id="instructions">
+          A list of words will appear on the screen sequentially. You should try
+          to remember as many as you can. Afterwards, more words will appear.
+          Click "Yes" if you saw the word earlier; otherwise, click "No". You
+          will be scored on accuracy and speed.
+        </p>
+
+        <div id="begin-memory">
+          <button id="begin-memory-button" onclick="beginMemory()">
+            Begin!
+          </button>
+        </div>
+      </div>
+
+      <div id="preview" style="width: 100%; height: 100%" hidden>
+        <p id="preview-word" style="color: WHITE">WORD</p>
+      </div>
+
+      <div id="test" style="width: 100%; height: 100%" hidden>
+        <div id="progress-bar-container">
+          <div id="progress-bar" style="width: 0; height: 100%"></div>
+        </div>
+        <p id="word" style="color: WHITE">WORD</p>
+        <div id="yes-no">
+          <button id="yes-button" onclick="yes()">Yes</button>
+          <button id="no-button" onclick="no()">No</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
