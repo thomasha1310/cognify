@@ -95,8 +95,9 @@ const RequestType = Object.freeze({
 // POST endpoint for receiving user data
 app.post("/api/user", async (req, res) => {
   console.log("Received request");
-  console.log(req.body);
+  console.log(req.body.requestType);
   const requestType = req.body.requestType;
+  console.log(requestType);
   const data = req.body.data;
 
   switch (requestType) {
@@ -111,12 +112,13 @@ app.post("/api/user", async (req, res) => {
       await storeResults();
       res.status(200).json({ message: "Data stored successfully" });
       break;
-    case RequestType.DATA_CHUNK:
+    case RequestType.RESULT_CHUNK:
       receiveResults(data);
       res.status(200).json({ message: "Data chunk received" });
       break;
     default:
       res.status(400).json({ message: "Invalid request type" });
+      break;
   }
 });
 
