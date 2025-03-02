@@ -24,7 +24,15 @@ Cognify seeks to resolve these pain points by **streamlining the user experience
 
 ## Usage
 
+### Patients
+
 Visit [thomasha1310.github.io/cognify](thomasha1310.github.io/cognify) to do a baseline test.
+
+### Care Providers
+
+Visit [thomasha1310.github.io/cognify/provider-portal](thomasha1310.github.io/cognify/provider-portal) and set up your care provider account, which requires your name and email as well as the medical facility where you work.
+
+Once your account is set up, you can refer your patients through the Provider Portal by selecting "Add Patient" and providing the patient's name and email. The patient will receive an email with instructions for taking the baseline test, and the results will be immediately emailed to both you and your patient.
 
 ## Contributing
 
@@ -42,4 +50,4 @@ cd cognify
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE);
+This project is licensed under the [MIT License](LICENSE).
