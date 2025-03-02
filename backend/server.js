@@ -1,9 +1,12 @@
 require("dotenv").config({ path: "./backend/.env.local" });
+const CryptoJS = require("crypto-js");
 
 // server.js
 const express = require("express");
 const app = express();
 const port = 3000;
+
+app.use(express.json());
 
 // MongoDB setup
 const { MongoClient, ServerApiVersion } = require("mongodb");
@@ -48,10 +51,24 @@ async function retrieveReferralData(referralCode) {
   try {
     await client.connect();
     const database = client.db("referral");
-    const collection = database.collection("referralData");
+    const collection = database.collection("patientData");
     const query = { referralCode: referralCode };
     const referralData = await collection.findOne(query);
     return referralData;
+  } finally {
+    await client.close();
+  }
+}
+async function storeResults(results) {
+  try {
+    const patientID = CryptoJS.SHA256(
+      results.name.toUpperCase() + results.email.toUpperCase()
+    ).toString(CryptoJS.enc.Hex);
+    results.patientID = patientID;
+    await client.connect();
+    const database = client.db("results");
+    const collection = database.collection("patientData");
+    await collection.insertOne(results);
   } finally {
     await client.close();
   }
@@ -74,7 +91,10 @@ const RequestType = Object.freeze({
 
 // POST endpoint for receiving user data
 app.post("/api/user", async (req, res) => {
-  const { requestType, data } = req.body;
+  console.log("Received request");
+  console.log(req.body);
+  const requestType = req.body.requestType;
+  const data = req.body.data;
 
   switch (requestType) {
     case RequestType.PING:
@@ -84,7 +104,10 @@ app.post("/api/user", async (req, res) => {
       const referralData = await retrieveReferralData(data.referralCode);
       res.status(200).json(referralData);
       break;
-
+    case RequestType.STORE_RESULTS:
+      storeResults(data);
+      res.status(200).json({ message: "Data stored successfully" });
+      break;
     default:
       res.status(400).json({ message: "Invalid request type" });
   }
