@@ -1,0 +1,78 @@
+{
+    "response_code": 0,
+    "results":
+    [
+      {
+        "type": "boolean",
+        "question": "shorts",
+        "correct_answer": "YES",
+        "incorrect_answers": ["NO"]  
+      },
+      {
+        "type": "boolean",
+        "question": "arrange",
+        "correct_answer": "YES",
+        "incorrect_answers":["NO"]
+      },
+      {
+        "type": "boolean",
+        "question": "rung",
+        "correct_answer": "YES",
+        "incorrect_answers":["NO"]
+      },
+      {
+        "type": "boolean",
+        "question": "proposal",
+        "correct_answer": "YES",
+        "incorrect_answers":["NO"]
+      },
+      {
+        "type": "boolean",
+        "question": "process",
+        "correct_answer": "YES",
+        "incorrect_answers":["NO"]
+      },
+      {
+        "type": "boolean",
+        "question": "attraction",
+        "correct_answer": "YES",
+        "incorrect_answers":["NO"]
+      },
+      {
+        "type": "boolean",
+        "question": "effort",
+        "correct_answer": "NO",
+        "incorrect_answers":["YES"]
+      },
+      {
+        "type": "boolean",
+        "question": "engineer",
+        "correct_answer": "NO",
+        "incorrect_answers":["YES"]
+      },
+      {
+        "type": "boolean",
+        "question": "foundation",
+        "correct_answer": "NO",
+        "incorrect_answers":["YES"]
+      },
+      {
+        "type": "boolean",
+        "question": "butterfly",
+        "correct_answer": "NO",
+        "incorrect_answers":["YES"]
+      },
+      {
+        "type": "boolean",
+        "question": "nose",
+        "correct_answer": "NO",
+        "incorrect_answers":["YES"]
+      },
+      {
+        "type": "boolean",
+        "question": "similar",
+        "correct_answer": "NO",
+        "incorrect_answers":["YES"]
+      }
+    ]
+  }
