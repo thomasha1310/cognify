@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Jost';
+    src: url();
+}
+
 :root {
     --background-color: #BED4FF;
     --text-color: #000000;
