@@ -16,21 +16,6 @@ console.log(uri);
 // Serve static files from the 'public' folder
 app.use(express.static("public"));
 
-// Example endpoint to handle GET request
-app.get("/api/data", (req, res) => {
-  const data = {
-    message: "Hello from the backend!",
-  };
-  res.json(data); // Send JSON response
-});
-
-// POST endpoint example
-app.post("/api/data", (req, res) => {
-  const userData = req.body;
-  console.log("Received data:", userData);
-  res.status(200).json({ message: "Data received successfully" });
-});
-
 // Start the server
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
@@ -59,3 +44,48 @@ async function run() {
   }
 }
 run().catch(console.dir);
+async function retrieveReferralData(referralCode) {
+  try {
+    await client.connect();
+    const database = client.db("referral");
+    const collection = database.collection("referralData");
+    const query = { referralCode: referralCode };
+    const referralData = await collection.findOne(query);
+    return referralData;
+  } finally {
+    await client.close();
+  }
+}
+
+// Example endpoint to handle GET request
+app.get("/api/data", (req, res) => {
+  const data = {
+    message: "Hello from the backend!",
+  };
+  res.json(data); // Send JSON response
+});
+
+// Valid HTTP POST request types
+const RequestType = Object.freeze({
+  PING: 0,
+  FIND_REFERRAL: 1,
+  STORE_RESULTS: 2,
+});
+
+// POST endpoint for receiving user data
+app.post("/api/user", async (req, res) => {
+  const { requestType, data } = req.body;
+
+  switch (requestType) {
+    case RequestType.PING:
+      res.status(200).json({ message: `Ping received at ${new Date()}` });
+      break;
+    case RequestType.FIND_REFERRAL:
+      const referralData = await retrieveReferralData(data.referralCode);
+      res.status(200).json(referralData);
+      break;
+
+    default:
+      res.status(400).json({ message: "Invalid request type" });
+  }
+});
