@@ -50,8 +50,8 @@ run().catch(console.dir);
 async function retrieveReferralData(referralCode) {
   try {
     await client.connect();
-    const database = client.db("referral");
-    const collection = database.collection("patientData");
+    const database = client.db("patientDB");
+    const collection = database.collection("patients.referrals");
     const query = { referralCode: referralCode };
     const referralData = await collection.findOne(query);
     return referralData;
@@ -66,8 +66,8 @@ async function storeResults(results) {
     ).toString(CryptoJS.enc.Hex);
     results.patientID = patientID;
     await client.connect();
-    const database = client.db("results");
-    const collection = database.collection("patientData");
+    const database = client.db("patientDB");
+    const collection = database.collection("patients.data");
     await collection.insertOne(results);
   } finally {
     await client.close();
