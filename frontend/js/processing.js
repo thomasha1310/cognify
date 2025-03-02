@@ -13,6 +13,8 @@ var awardPointOnInterval = false;
 
 var actualCorrect = 0;
 
+var dataSent = false;
+
 function beginProcessing() {
   document.getElementById("before-test").hidden = true;
   document.getElementById("test").hidden = false;
@@ -29,13 +31,17 @@ function beginProcessing() {
     count++;
     if (count > totalWords) {
       clearInterval(interval);
-      // Send data to backend
-      alert(
-        `Accuracy: ${(correct * 100) / totalWords}%\nAverage time on correct: ${
-          Math.floor(timeTakenOnCorrect / correct) / 1000
-        } seconds`
-      );
-      window.location.href = "results.html";
+      const results = {
+        processing: {
+          time: timeTakenOnCorrect / correct,
+          accuracy: (correct * 100) / totalWords,
+        },
+      };
+      console.log("sending to backend");
+      console.log(results);
+      sendToBackend(results).then(() => {
+        window.location.href = "results.html";
+      });
       return;
     }
     var progress = count / totalWords;
@@ -78,5 +84,26 @@ function getWordStyle() {
       awardPointOnInterval = false;
     }
     return { color: color, text: text };
+  }
+}
+
+async function sendToBackend(results) {
+  try {
+    const response = await fetch("http://localhost:3000/api/user", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        requestType: 3,
+        data: {
+          data: results,
+        },
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    setTimeout(() => {}, 2000);
+    dataSent = true;
+  } catch (error) {
+    console.error(error);
   }
 }

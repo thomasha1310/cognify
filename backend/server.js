@@ -3,9 +3,11 @@ const CryptoJS = require("crypto-js");
 
 // server.js
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = 3000;
 
+app.use(cors());
 app.use(express.json());
 
 // MongoDB setup
@@ -59,7 +61,7 @@ async function retrieveReferralData(referralCode) {
     await client.close();
   }
 }
-async function storeResults(results) {
+async function storeResults() {
   try {
     const patientID = CryptoJS.SHA256(
       results.name.toUpperCase() + results.email.toUpperCase()
@@ -87,6 +89,7 @@ const RequestType = Object.freeze({
   PING: 0,
   FIND_REFERRAL: 1,
   STORE_RESULTS: 2,
+  RESULT_CHUNK: 3,
 });
 
 // POST endpoint for receiving user data
@@ -105,10 +108,55 @@ app.post("/api/user", async (req, res) => {
       res.status(200).json(referralData);
       break;
     case RequestType.STORE_RESULTS:
-      storeResults(data);
+      await storeResults();
       res.status(200).json({ message: "Data stored successfully" });
+      break;
+    case RequestType.DATA_CHUNK:
+      receiveResults(data);
+      res.status(200).json({ message: "Data chunk received" });
       break;
     default:
       res.status(400).json({ message: "Invalid request type" });
   }
 });
+
+const results = {
+  name: "",
+  email: "",
+  data: {
+    memory: {
+      time: 0,
+      accuracy: 0,
+    },
+    reaction: {
+      time: 0,
+      accuracy: 0,
+    },
+    processing: {
+      time: 0,
+      accuracy: 0,
+    },
+  },
+};
+
+function receiveResults(data) {
+  console.log("Received results!");
+  if (data.name) {
+    results.name = data.name;
+  }
+  if (data.email) {
+    results.email = data.email;
+  }
+  if (data.memory) {
+    results.data.memory.time = data.memory.time;
+    results.data.memory.accuracy = data.memory.accuracy;
+  }
+  if (data.reaction) {
+    results.data.reaction.time = data.reaction.time;
+    results.data.reaction.accuracy = data.reaction.accuracy;
+  }
+  if (data.processing) {
+    results.data.processing.time = data.processing.time;
+    results.data.processing.accuracy = data.processing.accuracy;
+  }
+}
